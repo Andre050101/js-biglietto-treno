@@ -11,4 +11,16 @@
 
 let nKm = parseInt(prompt("Quanti kilometri desidera percorrere?")); /*Numero km da percorrere*/
 let eta = parseInt(prompt("Quanti anni ha? (Abbiamo uno sconto dedicato a minorenni ed un altro a over 65!)"))
+
+/*Calcolo del prezzo */
 let prezzo = 0.21 * nKm;
+if(eta < 18 || eta > 65){
+    if(eta < 18){
+        prezzo = prezzo * 0.8;
+    }
+    else{
+        prezzo = prezzo * 0.6;
+    }
+}
+
+console.log("il prezzo del biglietto è "+prezzo+"€")
