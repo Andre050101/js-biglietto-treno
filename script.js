@@ -25,23 +25,18 @@ while(eta<0 || eta > 150){
 
 /*Calcolo del prezzo */
 let prezzo = 0.21 * nKm;
-
-/*Fascia scontata*/
-if(eta < 18 || eta > 65){
-    /*Sconto under-18*/
-    if(eta < 18){
+if(eta < 18){
         console.log("Complimenti, appartiene alla fascia scontata under-18, ha diritto ad uno sconto del 20% sul prezzo del biglietto")
         prezzo = prezzo * 0.8;
-    }
-    else{
-        console.log("Complimenti, appartiene alla fascia scontata over-65, ha diritto ad uno sconto del 40% sul prezzo del biglietto")
-        prezzo = prezzo * 0.6;
-    }
 }
-else{
+else if(eta >=18 && eta < 65){
     console.log("Non appartiene a nessuna fascia scontata")
 }
-
+else{
+    console.log("Complimenti, appartiene alla fascia scontata over-65, ha diritto ad uno sconto del 40% sul prezzo del biglietto")
+    prezzo = prezzo * 0.6;
+}
+ 
 /*Formattazione prezzo con solo 2 cifre decimali*/
 let prezzoFormattato = prezzo.toFixed(2);
 
