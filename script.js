@@ -7,20 +7,37 @@
         - L'output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 */
 
-/*Variabili*/
+/*Variabili iniziali*/
+let nKm; /*Numero km da percorrere*/
+let eta; /*Età passeggero*/
 
-let nKm = parseInt(prompt("Quanti kilometri desidera percorrere?")); /*Numero km da percorrere*/
-let eta = parseInt(prompt("Quanti anni ha? (Abbiamo uno sconto dedicato a minorenni ed un altro a over 65!)"))
+/*Richiesta dati a utente e validazione dati pre calcolo (prezzo non può essere minore di 0 ed eta non può essere ne minore di 0 ne maggiore di 150)*/
+nKm = parseInt(prompt("Buongiorno, benvenuti da rapidTrain, quanti kilometri desidera percorrere?"));
+while(nKm < 0){
+    console.log("Siamo spiacenti, il numero di kilometri indicato risulta minore di 0!")
+    nKm = parseInt(prompt("Quanti kilometri desidera percorrere?"));
+}
+eta = parseInt(prompt("Quanti anni ha? (Abbiamo uno sconto dedicato a minorenni ed un altro a over 65!)"))
+while(eta<0 || eta > 150){
+    console.log("Siamo spiacenti, l'età inserita risulta non valida!")
+    eta = parseInt(prompt("Per favore reinserisca la sua età"))
+}
 
 /*Calcolo del prezzo */
 let prezzo = 0.21 * nKm;
+
+/*Fascia scontata*/
 if(eta < 18 || eta > 65){
+    /*Sconto under-18*/
     if(eta < 18){
+        console.log("Complimenti, appartiene alla fascia scontata under-18, ha diritto ad uno sconto del 20% sul prezzo del biglietto")
         prezzo = prezzo * 0.8;
     }
     else{
+        console.log("Complimenti, appartiene alla fascia scontata over-65, ha diritto ad uno sconto del 40% sul prezzo del biglietto")
         prezzo = prezzo * 0.6;
     }
 }
 
-console.log("il prezzo del biglietto è "+prezzo+"€")
+/*Visualizzazione del risultato in console*/
+console.log("il prezzo del suo biglietto è "+prezzo+"€")
