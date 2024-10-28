@@ -38,6 +38,12 @@ if(eta < 18 || eta > 65){
         prezzo = prezzo * 0.6;
     }
 }
+else{
+    console.log("Non appartiene a nessuna fascia scontata")
+}
+
+/*Formattazione prezzo con solo 2 cifre decimali*/
+let prezzoFormattato = prezzo.toFixed(2);
 
 /*Visualizzazione del risultato in console*/
-console.log("il prezzo del suo biglietto è "+prezzo+"€")
+console.log("il prezzo del suo biglietto è "+prezzoFormattato+"€")
